@@ -1,0 +1,61 @@
+<header class="header">
+  <nav class="header__nav">
+    <a href="/" class="header__nav__logo">
+      <img src="/img/logo.svg" alt="logo" />
+    </a>
+
+    <% if (items === 'all') { %>
+    <ul class="header__nav__right hide-until-700">
+      <li><a class="grey" href="/terms">Terms.</a></li>
+      <li><a class="grey" href="/privacy">Privacy.</a></li>
+      <li><a class="grey" href="/about">About.</a></li>
+
+      <% if (user) { %>
+      <li><a class="blue" href="/dashboard">Dashboard</a></li>
+      <% } else { %>
+      <li><a class="blue" href="/login">Login</a></li>
+      <li><a class="orange" href="/signup">Sign Up</a></li>
+      <%} %>
+    </ul>
+    <% } else if (items === 'sign-up') { %>
+    <ul class="header__nav__right">
+      <% if (user) { %>
+      <li><a class="blue" href="/dashboard">Dashboard</a></li>
+      <% } else { %>
+      <li><a class="orange" href="/signup">Sign Up</a></li>
+      <%} %>
+    </ul>
+    <% } else { %>
+    <ul class="header__nav__right">
+      <% if (user) { %>
+      <li><a class="blue" href="/dashboard">Dashboard</a></li>
+      <% } else { %>
+      <li><a class="blue" href="/login">Login</a></li>
+      <%} %>
+    </ul>
+    <%} %>
+
+    <!-- MENU BUTTON -->
+    <% if (items === 'all') { %>
+    <button id="menu" class="header__nav__menu">
+      <span class="menu-bar"></span>
+      <span class="menu-bar"></span>
+      <span class="menu-bar"></span>
+    </button>
+    <% } %>
+  </nav>
+
+  <% if (items === 'all') { %>
+  <ul id="dropdown-menu" class="header__nav__dropdown-menu">
+    <li><a class="grey" href="/terms">Terms.</a></li>
+    <li><a class="grey" href="/privacy">Privacy.</a></li>
+    <li><a class="grey" href="/about">About.</a></li>
+
+    <% if (user) { %>
+    <li><a class="blue" href="/dashboard">Dashboard</a></li>
+    <% } else { %>
+    <li><a class="blue" href="/login">Login</a></li>
+    <li><a class="orange" href="/signup">Sign Up</a></li>
+    <%} %> <% } %>
+  </ul>
+</header>

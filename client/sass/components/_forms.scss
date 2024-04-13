@@ -1,0 +1,139 @@
+form {
+  label {
+    display: block;
+    font-size: 14px;
+    color: #aeaeae;
+    font-weight: 500;
+  }
+
+  input[type='email'],
+  input[type='password'],
+  input[type='text'],
+  textarea,
+  select {
+    margin-top: 10px;
+    display: block;
+    background: #ffffff;
+    border: 2px solid #d3d3d3;
+    box-shadow: 0 0 10px 0 rgba(167, 167, 167, 0.13);
+    border-radius: 5px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #333;
+    padding: 17px 20px 16px 20px;
+    transition: border 150ms, box-shadow 150ms;
+
+    &.error {
+      border-color: #ff5858;
+      box-shadow: 0 0 10px 0 rgba(255, 87, 87, 0.42);
+      color: #ff5858;
+
+      &:focus {
+        border-color: #ff5858;
+        box-shadow: 0 0 10px 0 rgba(255, 87, 87, 0.42);
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      display: inline-block;
+      width: 100%;
+    }
+
+    &:focus {
+      border: 2px solid #5874f6;
+      box-shadow: 0 0 10px 0 rgba(95, 113, 246, 0.47);
+    }
+  }
+
+  .form-group {
+    padding: 0px 40px 35px 0px;
+    width: 100%;
+
+    select {
+      appearance: none;
+      background-repeat: no-repeat;
+      background-position: right 20px center;
+      background-image: url(/img/icon-dropdown.svg);
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      input[type='checkbox'] {
+        display: inline-block;
+        width: auto;
+        margin-right: 10px;
+        padding: 11px;
+        border-radius: 5px;
+        appearance: none;
+        border: 2px solid #d3d3d3;
+        cursor: pointer;
+        transition: border 100ms, box-shadow 100ms;
+        z-index: 5;
+        position: relative;
+
+        &:checked {
+          border: 2px solid #5874f6;
+          box-shadow: 0 0 10px 0 rgba(95, 113, 246, 0.47);
+        }
+      }
+
+      input[type='checkbox']:checked + {
+        .check {
+          display: inline-block;
+        }
+      }
+
+      .check {
+        display: none;
+        position: absolute;
+        top: 2px;
+        left: 1px;
+
+        svg {
+          padding: 1.5px;
+        }
+      }
+
+      p {
+        font-size: 1.7rem;
+        color: #9d9d9d;
+
+        a {
+          color: #333;
+          font-weight: 500;
+        }
+      }
+    }
+
+    p.error {
+      padding-top: 10px;
+      color: #ff0f0f;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    &-2 {
+      display: flex;
+      width: 100%;
+
+      & > * {
+        max-width: 50%;
+      }
+
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+
+        & > * {
+          max-width: 100%;
+        }
+      }
+    }
+
+    &-full-width {
+      width: 100%;
+    }
+  }
+}

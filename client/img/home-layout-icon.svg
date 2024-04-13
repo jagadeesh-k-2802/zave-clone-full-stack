@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="29px" height="29px" viewBox="0 0 29 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>layout</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M11.75,25.5 L24.125,25.5 C24.8843915,25.5 25.5,24.8843915 25.5,24.125 L25.5,11.75 L11.75,11.75 L11.75,25.5 Z M9,25.5 L9,11.75 L3.5,11.75 L3.5,24.125 C3.5,24.8843915 4.11560847,25.5 4.875,25.5 L9,25.5 Z M25.5,9 L25.5,4.875 C25.5,4.11560847 24.8843915,3.5 24.125,3.5 L4.875,3.5 C4.11560847,3.5 3.5,4.11560847 3.5,4.875 L3.5,9 L25.5,9 Z M4.875,0.75 L24.125,0.75 C26.4031746,0.75 28.25,2.59682541 28.25,4.875 L28.25,24.125 C28.25,26.4031746 26.4031746,28.25 24.125,28.25 L4.875,28.25 C2.59682541,28.25 0.75,26.4031746 0.75,24.125 L0.75,4.875 C0.75,2.59682541 2.59682541,0.75 4.875,0.75 Z" id="path-1"></path>
+    </defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-224.000000, -2468.000000)">
+        <g id="layout" transform="translate(224.000000, 2468.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Combined-Shape" fill="#FF6B6B" fill-rule="nonzero" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head', { title: 'Zave - About Us' }) %>
+  </head>
+
+  <body>
+    <%- include('../partials/header', { items: 'all', user }) %>
+
+    <main class="about-section">
+      <div class="about-section__wrapper">
+        <div class="about-section__wrapper__title">
+          <h1>About Us</h1>
+        </div>
+
+        <div class="about-section__wrapper__block split">
+          <div>
+            <p>
+              We created Zave as a place to save the web in private or with the
+              world.
+            </p>
+            <p>
+              We believe a big benefit of Zave is that you can create reading
+              lists that allows you to share them with friends, family or your
+              social media following.
+            </p>
+            <p>
+              We're passionate about sharing great content! The web is a
+              fantastic place where we all regularly find great resouces like
+              blog posts, news articles, videos and more. We wanted to allow
+              people to create a list of web pages that they can keep safe for
+              their personal reference, or to share with the world.
+            </p>
+          </div>
+
+          <div class="image">
+            <img src="/img/about-display.jpg" />
+          </div>
+        </div>
+
+        <div class="about-section__wrapper__block">
+          <h2>What’s next?</h2>
+          <p>
+            We are committed to improving Zave based on our users feedback. We
+            have plans to create team accounts that will allow a group of people
+            to share links or resources with anyone they invite to their team
+            account.
+          </p>
+        </div>
+
+        <div class="about-section__wrapper__block">
+          <h2>Who built this?</h2>
+          <p>
+            A Designer and Developer called
+            <a href="http://jamiepeak.co.uk/" class="purple" target="_blank">
+              Jagadeesh</a
+            >. You can find him on
+            <a href="https://twitter.com" class="twitter" target="_blank">
+              Twitter</a
+            >.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <div class="footer-divider"></div>
+    <%- include('../partials/footer') %>
+  </body>
+</html>

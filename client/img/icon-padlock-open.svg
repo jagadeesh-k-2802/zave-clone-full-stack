@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="19px" viewBox="0 0 17 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>interface2-icons-01</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-291.000000, -1768.000000)" opacity="0.5" stroke-linecap="round" stroke-linejoin="round">
+        <g id="interface2-icons-01" transform="translate(292.000000, 1769.000000)" stroke="#91929B" stroke-width="2">
+            <path d="M10.01,16.7782609 L0.99,16.7782609 C0.586666667,16.7782609 0.256666667,16.4456522 0.256666667,16.0391304 L0.256666667,7.90869565 C0.256666667,7.50217391 0.586666667,7.16956522 0.99,7.16956522 L10.0466667,7.16956522 C10.45,7.16956522 10.78,7.50217391 10.78,7.90869565 L10.78,16.0391304 C10.78,16.4456522 10.4133333,16.7782609 10.01,16.7782609 Z" id="Shape"></path>
+            <path d="M7.83333333,7.02173913 L7.83333333,3.7326087 C7.83333333,1.81086957 9.41,0.22173913 11.3166667,0.22173913 C13.2233333,0.22173913 14.8,1.81086957 14.8,3.7326087 L14.8,7.02173913" id="Shape"></path>
+        </g>
+    </g>
+</svg>

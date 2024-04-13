@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="29px" height="29px" viewBox="0 0 29 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-colour-ProductHunt</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Profile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-306.000000, -439.000000)">
+        <path d="M322.433031,456.4 L322.433031,456.4 L318.325,456.4 L318.325,460.75 L315.425,460.75 L315.425,446.25 L322.433031,446.25 C325.236062,446.25 327.508031,448.521969 327.508031,451.325 C327.508031,454.128031 325.236062,456.4 322.433031,456.4 M320.5,439 C312.491469,439 306,445.491469 306,453.5 C306,461.508531 312.491469,468 320.5,468 C328.507625,468 335,461.508531 335,453.5 C335,445.491469 328.507625,439 320.5,439 M322.433031,449.15 L322.433031,449.15 L318.325,449.15 L318.325,453.5 L322.433031,453.5 C323.634719,453.5 324.608031,452.525781 324.608031,451.325 C324.608031,450.124219 323.634719,449.15 322.433031,449.15" id="ProductHunt" fill="#DE5425"></path>
+    </g>
+</svg>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head', { title: 'Zave - Error' }) %>
+  </head>
+
+  <body>
+    <%- include('../partials/header-fixed', { host, user, showSearch: false }) %>
+
+    <main class="notfound-section background-grey">
+      <div class="notfound-section__wrapper">
+        <h1>404</h1>
+        <p>Sorry the page you’re looking for cannot be found.</p>
+        <a href="/" class="btn btn--primary">Continue</a>
+      </div>
+    </main>
+
+    <%- include('../partials/footer') %>
+  </body>
+</html>

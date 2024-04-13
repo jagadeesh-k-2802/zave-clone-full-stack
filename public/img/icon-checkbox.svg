@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="21px" viewBox="0 0 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Rectangle 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="947" y="1020" width="21" height="21" rx="10.5"></rect>
+    </defs>
+    <g id="Profile-Settings" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-947.000000, -1020.000000)">
+        <g id="Rectangle-3">
+            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+            <rect stroke="#E3E3E3" stroke-width="4" x="949" y="1022" width="17" height="17" rx="8.5"></rect>
+        </g>
+    </g>
+</svg>

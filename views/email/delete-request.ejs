@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome To Zave</title>
+    <%- include('./style') %>
+  </head>
+
+  <body>
+    <div class="container">
+      <img src="https://zave.co/site/mail-assets/email-logo.jpg" alt="logo" />
+      <h1>Hi <%= firstName %></h1>
+      <h3>There was a request to delete your account.</h3>
+
+      <p>
+        If you did not make this request, just ignore this email. Otherwise,
+        please click the button below to proceed.
+      </p>
+
+      <p>The below link will expire in 10 mins</p>
+
+      <a class="danger" href="<%= url %>">Confirm Account Deletion</a>
+    </div>
+
+    <footer>
+      <a href="mailto:hello@zave.com ">hello@zave.com</a>
+      <p>&copy; 2024 Zave</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,295 @@
+.settings-section {
+  &__wrapper {
+    max-width: 984px;
+    margin: 0 auto;
+    padding: 170px 0px 70px 0px;
+
+    @media screen and (max-width: 1100px) {
+      width: 92%;
+    }
+
+    &__title {
+      h1 {
+        font-size: 3.8rem;
+        color: #515151;
+        margin-bottom: 20px;
+      }
+    }
+
+    &__cols {
+      display: flex;
+      align-items: flex-start;
+
+      .left,
+      .right {
+        background-color: #fff;
+        box-shadow: 0 20px 24px 10px rgba(0, 0, 0, 0.04);
+        border-radius: 4px;
+
+        .form-heading {
+          font-size: 17px;
+          margin-bottom: 15px;
+          color: #6e6e6e;
+          font-family: 'proxima-soft', sans-serif;
+        }
+      }
+
+      .left {
+        width: 590px;
+        margin-right: 5rem;
+
+        .form-divider {
+          height: 2px;
+          background-color: #f8f8f8;
+          margin-top: 60px;
+        }
+
+        .change-password-block,
+        .delete-account-block {
+          h3 {
+            font-size: 2.2rem;
+            color: #5e5e5e;
+            line-height: 28px;
+            font-family: 'proxima-soft', sans-serif;
+            margin-bottom: 15px;
+          }
+
+          p {
+            font-size: 16px;
+            color: #969696;
+            margin-bottom: 20px;
+          }
+        }
+
+        .change-password-block {
+          #update-password-overlay {
+            .modal {
+              padding: 40px 30px;
+              min-width: 400px;
+              text-align: center;
+            }
+
+            h1 {
+              font-size: 3rem;
+              color: #585858;
+              font-weight: 700;
+              line-height: 36px;
+              font-family: 'proxima-soft', sans-serif;
+            }
+
+            p {
+              font-size: 16px;
+              color: #979797;
+              padding: 5px 0px 25px 0px;
+              line-height: 24px;
+            }
+
+            form {
+              button {
+                width: 100%;
+              }
+            }
+          }
+        }
+
+        .delete-account-block {
+          background-color: #f8fbfc;
+          padding: 50px !important;
+
+          #delete-account-overlay {
+            .modal {
+              padding: 40px 30px;
+              max-width: 450px;
+              text-align: center;
+            }
+
+            h1 {
+              font-size: 3rem;
+              color: #585858;
+              font-weight: 700;
+              line-height: 36px;
+              font-family: 'proxima-soft', sans-serif;
+            }
+
+            p {
+              font-size: 17px;
+              color: #979797;
+              padding: 8px 0px 5px 0px;
+              line-height: 24px;
+            }
+
+            form {
+              button {
+                width: 100%;
+              }
+            }
+          }
+        }
+
+        .form-wrapper {
+          padding: 40px 50px 10px 50px;
+        }
+
+        .form-group {
+          padding: 0;
+          margin: 25px 0;
+
+          input,
+          textarea {
+            display: inline-block;
+            width: 100%;
+          }
+
+          input#facebook {
+            background-repeat: no-repeat;
+            background-position: center right 17px;
+            background-image: url(/img/icon-facebook.svg);
+          }
+
+          input#twitter {
+            background-repeat: no-repeat;
+            background-position: center right 17px;
+            background-image: url(/img/icon-twitter.svg);
+          }
+
+          input#instagram {
+            background-repeat: no-repeat;
+            background-position: center right 17px;
+            background-image: url(/img/icon-instagram.svg);
+          }
+
+          input#producthunt {
+            background-repeat: no-repeat;
+            background-position: center right 17px;
+            background-image: url(/img/icon-product-hunt.svg);
+          }
+
+          .username-preview {
+            display: inline-block;
+            margin: 20px 0px;
+            background-color: #fbfbfb;
+            padding: 10px;
+            font-size: 14px;
+            border: solid 1px #eeeeee;
+            border-radius: 4px;
+            color: #ababab;
+            font-weight: 500;
+          }
+        }
+      }
+
+      .right {
+        width: 350px;
+        box-shadow: none;
+
+        .right-block {
+          margin-bottom: 50px;
+          background-color: #fff;
+          box-shadow: 0 0px 10px 12px rgba(0, 0, 0, 0.04);
+          border-radius: 4px;
+          padding: 40px 50px 50px 50px;
+
+          .avatar-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            @media screen and (max-width: 1100px) {
+              flex-direction: column;
+              align-items: flex-start;
+            }
+
+            &__avatar-slim-wrapper {
+              width: 110px;
+              font-size: 16px;
+
+              @media screen and (max-width: 1100px) {
+                width: 101px;
+              }
+
+              .slim {
+                background: #ffffff;
+                box-shadow: 0 8px 14px -1px rgba(0, 0, 0, 0.11);
+                border-radius: 8px;
+
+                .slim-btn-group {
+                  bottom: -40px;
+                }
+              }
+            }
+
+            .btn {
+              width: 50%;
+              font-size: 13px;
+              margin-left: 3rem;
+              padding: 1rem 0.75rem;
+
+              @media screen and (max-width: 1100px) {
+                width: 150px;
+                margin-left: 0;
+                margin-top: 4rem;
+              }
+            }
+          }
+
+          .radio-btns {
+            button {
+              font-size: 14px;
+              margin-bottom: 2rem;
+              width: 165px;
+
+              background-repeat: no-repeat;
+              background-position: left center;
+              background-image: url(/img/icon-checkbox.svg);
+              background-position: left 11px top 11px;
+
+              @media screen and (max-width: 1100px) {
+                &:not(:last-child) {
+                  margin-right: 2rem;
+                }
+              }
+
+              &.active {
+                background-image: url(/img/icon-checkbox-checked-white.svg);
+                background-color: #4ad97f;
+                color: #fff;
+
+                &:hover {
+                  background-color: darken($color: #4ad97f, $amount: 10);
+                }
+              }
+            }
+          }
+
+          #profile-visible-at {
+            transition: opacity 250ms;
+          }
+
+          p {
+            font-size: 15px;
+            color: #969696;
+            margin-bottom: 20px;
+            font-weight: 500;
+
+            span.black {
+              color: #333;
+            }
+          }
+        }
+      }
+
+      @media screen and (max-width: 1100px) {
+        flex-direction: column;
+
+        .left,
+        .right {
+          width: 100%;
+        }
+
+        .right {
+          margin-top: 50px;
+        }
+      }
+    }
+  }
+}

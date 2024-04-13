@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="21px" viewBox="0 0 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 5</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="21" height="21" rx="10.5"></rect>
+        <path d="M6,11 L14.5,11 C14.7761424,11 15,11.2238576 15,11.5 C15,11.7761424 14.7761424,12 14.5,12 L5.5,12 C5.22385763,12 5,11.7761424 5,11.5 L5,7.5 C5,7.22385763 5.22385763,7 5.5,7 C5.77614237,7 6,7.22385763 6,7.5 L6,11 Z" id="path-2"></path>
+    </defs>
+    <g id="Profile-Settings" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-956.000000, -701.000000)">
+        <g id="Group-5" transform="translate(956.000000, 701.000000)">
+            <g id="Rectangle-3">
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <rect stroke="#FFFFFF" stroke-width="4" x="2" y="2" width="17" height="17" rx="8.5"></rect>
+            </g>
+            <g id="Combined-Shape" transform="translate(10.000000, 9.500000) rotate(-45.000000) translate(-10.000000, -9.500000) ">
+                <use fill="#4AD97F" fill-rule="evenodd" xlink:href="#path-2"></use>
+                <path stroke="#4AD97F" stroke-width="0.5" d="M6.25,10.75 L14.5,10.75 C14.9142136,10.75 15.25,11.0857864 15.25,11.5 C15.25,11.9142136 14.9142136,12.25 14.5,12.25 L5.5,12.25 C5.08578644,12.25 4.75,11.9142136 4.75,11.5 L4.75,7.5 C4.75,7.08578644 5.08578644,6.75 5.5,6.75 C5.91421356,6.75 6.25,7.08578644 6.25,7.5 L6.25,10.75 Z"></path>
+            </g>
+        </g>
+    </g>
+</svg>

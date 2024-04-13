@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head', { title: 'Zave - Signup', user }) %>
+  </head>
+
+  <body>
+    <%- include('../partials/header', { items: 'login' }) %>
+
+    <main class="signup-section">
+      <div class="signup-section__wrapper">
+        <h1>Sign Up</h1>
+
+        <form id="signup-form" class="signup-section__wrapper__form">
+          <div class="form-group-2">
+            <div class="form-group">
+              <label for="email">Full Name</label>
+              <input
+                type="text"
+                name="fullname"
+                id="full-name"
+                placeholder="First & last name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="password">Username</label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                placeholder="Username"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group-2">
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="email@example.com"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Minimum 6 characters"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group form-group-full-width">
+            <div class="checkbox">
+              <input type="checkbox" name="terms" id="terms" required />
+              <div class="check">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="22"
+                  viewBox="0 0 22 22"
+                  width="22"
+                >
+                  <path d="M0 0h24v24H0z" fill="none" />
+                  <path
+                    fill="#5874f6"
+                    d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                  />
+                </svg>
+              </div>
+              <p>I agree to the <a href="/terms">terms of use</a></p>
+            </div>
+          </div>
+
+          <div class="form-group form-group-full-width">
+            <button type="submit" class="btn btn--primary btn--rounded">
+              Create My Free Account
+            </button>
+          </div>
+        </form>
+
+        <p class="signup-section__wrapper__sub">
+          Already have an account? You can
+          <a href="/login">login here</a>
+        </p>
+      </div>
+    </main>
+
+    <div class="footer-divider"></div>
+    <%- include('../partials/footer') %>
+  </body>
+</html>

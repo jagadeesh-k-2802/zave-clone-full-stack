@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%; // 1rem = 10px
+}
+
+body {
+  font-family: 'proxima-soft', sans-serif;
+}
+
+::selection {
+  background: #dbdeea;
+  color: #fff;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'museo-sans', 'Helvetica Neue', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+
+  &:focus {
+    outline: none;
+  }
+}

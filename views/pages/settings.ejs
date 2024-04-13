@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/css/slim.min.css" />
+    <%- include('../partials/head', { title: 'Zave - Settings' }) %>
+  </head>
+
+  <body>
+    <%- include('../partials/header-fixed', { user,host, showSearch: false }) %>
+
+    <main class="settings-section background-grey">
+      <div class="settings-section__wrapper">
+        <div class="settings-section__wrapper__title">
+          <h1>Edit Profile</h1>
+        </div>
+
+        <div class="settings-section__wrapper__cols">
+          <div class="left">
+            <form id="profile-form">
+              <div class="form-wrapper">
+                <h2 class="form-heading">Personal Info</h2>
+
+                <div class="form-group form-group-full-width">
+                  <label for="fullname">Full Name</label>
+                  <input
+                    type="text"
+                    name="fullname"
+                    id="fullname"
+                    placeholder="First & last name"
+                    value="<%= user.fullname %>"
+                    required
+                  />
+                </div>
+                <div class="form-group form-group-full-width">
+                  <label for="username">Username</label>
+                  <input
+                    type="text"
+                    name="username"
+                    id="username"
+                    placeholder="Username"
+                    value="<%= user.username %>"
+                    required
+                  />
+                  <div class="username-preview">eg. zave.com/username</div>
+                </div>
+                <div class="form-group form-group-full-width">
+                  <label for="username">Profile Bio</label>
+                  <textarea name="bio" id="bio" placeholder="Profile Bio">
+<%= user.bio %></textarea
+                  >
+                </div>
+              </div>
+
+              <div class="form-divider"></div>
+
+              <div class="form-wrapper">
+                <h2 class="form-heading">Social Profiles</h2>
+
+                <div class="form-group form-group-full-width">
+                  <label for="fullname">Facebook URL</label>
+                  <input
+                    type="text"
+                    name="facebook"
+                    id="facebook"
+                    placeholder="facebook.com/me"
+                    spellcheck="false"
+                    value="<%= user.socialProfiles.facebook %>"
+                  />
+                </div>
+                <div class="form-group form-group-full-width">
+                  <label for="username">Twitter Username</label>
+                  <input
+                    type="text"
+                    name="twitter"
+                    id="twitter"
+                    placeholder="twitter.com/me"
+                    spellcheck="false"
+                    value="<%= user.socialProfiles.twitter %>"
+                  />
+                </div>
+                <div class="form-group form-group-full-width">
+                  <label for="username">Instagram Username</label>
+                  <input
+                    type="text"
+                    name="instagram"
+                    id="instagram"
+                    placeholder="instagra.com/me"
+                    spellcheck="false"
+                    value="<%= user.socialProfiles.instagram %>"
+                  />
+                </div>
+                <div class="form-group form-group-full-width">
+                  <label for="username">ProductHunt Username</label>
+                  <input
+                    type="text"
+                    name="producthunt"
+                    id="producthunt"
+                    placeholder="producthunt.com/@me"
+                    spellcheck="false"
+                    value="<%= user.socialProfiles.producthunt %>"
+                  />
+                </div>
+
+                <button class="btn btn--primary" type="submit">Save</button>
+
+                <div class="form-divider"></div>
+              </div>
+            </form>
+
+            <div class="form-wrapper change-password-block">
+              <p>Want to change your Password? Click the button below.</p>
+              <button
+                class="btn btn--orange modal-trigger"
+                data-modal="update-password-overlay"
+              >
+                Change Password
+              </button>
+
+              <div id="update-password-overlay" class="modal-overlay">
+                <div class="modal">
+                  <h1>Change Password</h1>
+                  <p>Change your Zave password.</p>
+
+                  <form id="update-password-form">
+                    <div class="form-group form-group-full-width">
+                      <input
+                        type="password"
+                        name="current-password"
+                        id="current-password"
+                        placeholder="Current Password"
+                      />
+                    </div>
+
+                    <div class="form-group form-group-full-width">
+                      <input
+                        type="password"
+                        name="new-password"
+                        id="new-password"
+                        placeholder="New Password"
+                      />
+                    </div>
+
+                    <div class="form-group form-group-full-width">
+                      <button class="btn btn--primary" type="submit">
+                        Save
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-divider"></div>
+
+            <div class="form-wrapper background-grey delete-account-block">
+              <h3>Delete your account?</h3>
+              <p>Warning - This is a permanent action and cannot be undone.</p>
+              <button
+                class="btn btn--red modal-trigger"
+                data-modal="delete-account-overlay"
+              >
+                Delete Account
+              </button>
+
+              <div id="delete-account-overlay" class="modal-overlay">
+                <div class="modal">
+                  <h1>Are you sure you want to delete your account?</h1>
+                  <p>
+                    This is permenant and once deleted cannot be recovered, we
+                    will send you a link to confirm your account deletion.
+                  </p>
+
+                  <form id="request-delete-form">
+                    <div class="form-group form-group-full-width">
+                      <button class="btn btn--red" type="submit">
+                        Delete Account
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="right">
+            <div class="right-block">
+              <h2 class="form-heading">Avatar</h2>
+
+              <div class="avatar-container">
+                <div class="avatar-container__avatar-slim-wrapper">
+                  <div id="slim-cropper" class="slim" data-max-file-size="2">
+                    <img src="/avatar/<%= user.avatar %>" />
+                    <input type="file" name="slim[]" />
+                  </div>
+                </div>
+
+                <button id="save-avatar-btn" class="btn btn--primary">
+                  Change Avatar
+                </button>
+              </div>
+            </div>
+
+            <div class="right-block">
+              <h2 class="form-heading">Profile Settings</h2>
+              <p>
+                Profile Visibility gives you the option to hide or show your
+                profile.
+              </p>
+
+              <div id="profile-visibility-toggle" class="radio-btns">
+                <button
+                  id="profile-hidden"
+                  class="btn btn--grey <%= user.profileVisibility === 'hidden' ? 'active' : '' %>"
+                >
+                  Profile Hidden
+                </button>
+                <button
+                  id="profile-visible"
+                  class="btn btn--grey <%= user.profileVisibility === 'visible' ? 'active' : '' %>"
+                >
+                  Profile Visible
+                </button>
+              </div>
+
+              <p
+                id="profile-visible-at"
+                class="<%= user.profileVisibility === 'hidden' ? 'hide' : '' %>"
+              >
+                Profile visible at: <br />
+                <span class="black">zave.com/<%= user.username %></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="/js/slim.kickstart.min.js"></script>
+    <%- include('../partials/footer') %>
+  </body>
+</html>

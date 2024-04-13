@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head', { title: 'Zave - Home' }) %>
+  </head>
+
+  <body>
+    <!-- HERO-SECTION -->
+    <main class="hero-section">
+      <!-- HEADER -->
+      <%- include('../partials/header', { items: 'login', user }) %>
+      <div class="hero-section__content">
+        <div class="hero-section__content__inner">
+          <h1>Save your favourite & most visited websites</h1>
+          <p class="lead">
+            Save your most commonly used websites for personal reference or
+            share them with the world
+          </p>
+          <a href="/signup" class="btn btn--primary">Create My Free Account</a>
+        </div>
+      </div>
+
+      <div class="hero-section__mouse-icon-wrapper">
+        <a href="#scroll">
+          <img src="/img/icon-mouse.svg" alt="mouse-icon" />
+        </a>
+      </div>
+    </main>
+
+    <!-- HOME-SECTION-1 -->
+    <section id="scroll" class="home-section-1">
+      <div class="home-section-1__wrapper">
+        <div class="home-section-1__wrapper__text">
+          <h1>
+            Use your Zave profile to share your favourite sites or reading lists
+            with the world...
+          </h1>
+          <p class="lead">
+            Save your most commonly used websites for personal reference or
+            share them with the world
+          </p>
+        </div>
+
+        <div class="home-section-1__wrapper__image">
+          <img src="/img/home-browser-window.png" alt="home-browser-window" />
+        </div>
+      </div>
+    </section>
+
+    <!-- HOME-SECTION-2 -->
+    <section class="home-section-2">
+      <div class="home-section-2__wrapper">
+        <div class="home-section-2__wrapper__grid">
+          <div class="home-section-2__wrapper__grid__item">
+            <img src="/img/home-layout-icon.svg" class="icon" />
+            <p>
+              Save, group and order your favourite &amp; most visited websites
+              all in one place.
+            </p>
+          </div>
+          <div class="home-section-2__wrapper__grid__item">
+            <img src="/img/home-lock-icon.svg" class="icon" />
+            <p>
+              Everything is private unless made public by you. You have full
+              control over who sees what.
+            </p>
+          </div>
+          <div class="home-section-2__wrapper__grid__item">
+            <img src="/img/home-at-sign-icon.svg" class="icon" />
+            <p>
+              Get yourself a Zave profile where you can share your favorite
+              sites or reading lists with the world.
+            </p>
+          </div>
+          <div class="home-section-2__wrapper__grid__item">
+            <img src="/img/home-folder-icon.svg" class="icon" />
+            <p>
+              Use our cards and grouping functionality to keep everything nice
+              and in order.
+            </p>
+          </div>
+          <div class="home-section-2__wrapper__grid__item">
+            <img src="/img/home-shuffle-icon.svg" class="icon" />
+            <p>
+              You have full control of your groups and cards. You can save, edit
+              and delete your cards at any time.
+            </p>
+          </div>
+          <div class="home-section-2__wrapper__grid__item">
+            <img src="/img/home-external-icon.svg" class="icon" />
+            <p>
+              Have a home on Zave for all your favourite sites and save time
+              accessing them.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+      <div class="cta-section__wrapper">
+        <div class="cta-section__wrapper__text">
+          <h2>Create your free account now</h2>
+          <p>
+            It takes less than a minute and you’ll be saving like a pro in no
+            time
+          </p>
+          <a href="/signup" class="btn btn--primary">Create My Free Account</a>
+        </div>
+      </div>
+    </section>
+
+    <%- include('../partials/footer') %>
+  </body>
+</html>

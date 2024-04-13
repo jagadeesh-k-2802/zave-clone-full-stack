@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/css/slick.css" />
+    <link rel="stylesheet" href="/css/jquery.minicolors.css" />
+    <%- include('../partials/head', { title: 'Zave - Dashboard' }) %>
+  </head>
+
+  <body>
+    <%- include('../partials/header-fixed', { user, host, showSearch: true }) %>
+
+    <!-- NEW GROUP OVERLAY -->
+    <div id="new-group-overlay" class="modal-overlay">
+      <div class="modal">
+        <img src="/img/icon-group.svg" alt="group-icon" />
+        <h1>Create Group</h1>
+        <p>
+          This will be the name for your group, this can be changed at any time.
+        </p>
+
+        <form id="create-group-form">
+          <div class="form-group full-width">
+            <input
+              type="text"
+              name="name"
+              placeholder="Group Name"
+              id="group-name"
+              required
+            />
+          </div>
+
+          <div class="form-group full-width">
+            <p class="subtitle">Group Colour</p>
+
+            <div class="color-swatch">
+              <div id="create-color-blocks" class="color-blocks">
+                <a
+                  class="colour-block-input green selected"
+                  value="#4ad97f"
+                ></a>
+                <a class="colour-block-input blue" value="#4199ff"></a>
+                <a class="colour-block-input purple" value="#af9bf8"></a>
+                <a class="colour-block-input red" value="#ff5252"></a>
+                <a class="colour-block-input grey" value="#bdc3c7"></a>
+                <a class="colour-block-input orange" value="#ffac62"></a>
+                <a class="colour-block-input purple-blue" value="#6a6af3"></a>
+                <input
+                  type="hidden"
+                  id="minicolors-input"
+                  class="minicolors-input"
+                  value="#8c6a43"
+                  size="7"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group full-width">
+            <button type="submit" class="btn btn--primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- New Card Modal -->
+    <div id="new-card-overlay" class="modal-overlay">
+      <div class="modal">
+        <img src="/img/icon-link.svg" alt="link-icon" />
+        <h1>
+          Copy and paste the URL of the website you want to create a card for
+        </h1>
+
+        <form id="new-card-form">
+          <div class="form-group full-width">
+            <input
+              type="text"
+              placeholder="http://example.com"
+              name="url"
+              id="url-new"
+              required
+            />
+
+            <div class="form-group full-width">
+              <input
+                type="hidden"
+                name="selected-group"
+                id="selected-group-new"
+                value=""
+              />
+            </div>
+          </div>
+
+          <div class="form-group full-width bottom-group">
+            <button type="submit" class="btn btn--primary">
+              Go <img src="/img/icon-right-arrow.svg" />
+            </button>
+            <p>
+              When you enter the url we will attempt to return an icon and page
+              title
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- EDIT GROUP OVERLAY -->
+    <div id="edit-group-overlay" class="modal-overlay">
+      <div class="modal">
+        <img src="/img/icon-group.svg" alt="group-icon" />
+        <h1>Edit Group</h1>
+        <p>Change the name or colour code of your group.</p>
+
+        <form id="edit-group-form">
+          <div class="form-group full-width">
+            <input
+              type="text"
+              name="name"
+              placeholder="Group Name"
+              id="group-name-edit"
+              required
+            />
+          </div>
+          <input type="hidden" id="group-id-edit" value="" />
+
+          <div class="form-group full-width">
+            <p class="subtitle">Group Colour</p>
+
+            <div class="color-swatch">
+              <div id="edit-color-blocks" class="color-blocks">
+                <a
+                  id="#4ad97f"
+                  class="colour-block-input green"
+                  value="#4ad97f"
+                ></a>
+                <a
+                  id="#4199ff"
+                  class="colour-block-input blue"
+                  value="#4199ff"
+                ></a>
+                <a
+                  id="#af9bf8"
+                  class="colour-block-input purple"
+                  value="#af9bf8"
+                ></a>
+                <a
+                  id="#ff5252"
+                  class="colour-block-input red"
+                  value="#ff5252"
+                ></a>
+                <a
+                  id="#ffac62"
+                  class="colour-block-input orange"
+                  value="#ffac62"
+                ></a>
+                <a
+                  id="#6a6af3"
+                  class="colour-block-input purple-blue"
+                  value="#6a6af3"
+                ></a>
+                <input
+                  type="hidden"
+                  id="minicolors-input-edit"
+                  class="minicolors-input"
+                  value="#8c6a43"
+                  size="7"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group full-width">
+            <button type="submit" class="btn btn--primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <main class="dashboard-section background-grey">
+      <div class="dashboard-section__nav">
+        <div class="dashboard-section__nav__tabs">
+          <% for( let i = 0; i < groups.length; i++ ) { %>
+          <a
+            href="#<%= groups[i].name.toLowerCase() %>"
+            style="border-color: <%= groups[i].color %>"
+          >
+            <%= groups[i].name %>
+          </a>
+          <% } %>
+        </div>
+        <div class="dashboard-section__nav__btn">
+          <button class="modal-trigger" data-modal="new-group-overlay">
+            New Group
+          </button>
+        </div>
+      </div>
+
+      <div class="dashboard-section__layout-options">
+        <button
+          class="dropdown-trigger"
+          data-overlay="layout-overlay"
+          data-dropdown="layout-dropdown"
+          data-width="152"
+          data-height="87"
+          data-isShowing="false"
+        >
+          <img src="/img/icon-grid-layout.svg" />
+          <div id="layout-overlay" class="invisible-overlay"></div>
+          <div id="layout-dropdown" class="layout-dropdown dropdown">
+            <div
+              id="layout-grid"
+              class="layout-dropdown__item <%= layout === 'grid' ? 'active': '' %>"
+            >
+              <svg
+                width="16px"
+                height="16px"
+                viewBox="0 0 16 16"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <g
+                  id="grid-layout-icon"
+                  stroke="none"
+                  stroke-width="1"
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(-1380.000000, -232.000000)"
+                >
+                  <path
+                    d="M1380.72727,232 L1385.81818,232 C1386.21984,232 1386.54545,232.325611 1386.54545,232.727273 L1386.54545,237.818182 C1386.54545,238.219843 1386.21984,238.545455 1385.81818,238.545455 L1380.72727,238.545455 C1380.32561,238.545455 1380,238.219843 1380,237.818182 L1380,232.727273 C1380,232.325611 1380.32561,232 1380.72727,232 Z M1390.18182,232 L1395.27273,232 C1395.67439,232 1396,232.325611 1396,232.727273 L1396,237.818182 C1396,238.219843 1395.67439,238.545455 1395.27273,238.545455 L1390.18182,238.545455 C1389.78016,238.545455 1389.45455,238.219843 1389.45455,237.818182 L1389.45455,232.727273 C1389.45455,232.325611 1389.78016,232 1390.18182,232 Z M1380.72727,241.454545 L1385.81818,241.454545 C1386.21984,241.454545 1386.54545,241.780157 1386.54545,242.181818 L1386.54545,247.272727 C1386.54545,247.674389 1386.21984,248 1385.81818,248 L1380.72727,248 C1380.32561,248 1380,247.674389 1380,247.272727 L1380,242.181818 C1380,241.780157 1380.32561,241.454545 1380.72727,241.454545 Z M1390.18182,241.454545 L1395.27273,241.454545 C1395.67439,241.454545 1396,241.780157 1396,242.181818 L1396,247.272727 C1396,247.674389 1395.67439,248 1395.27273,248 L1390.18182,248 C1389.78016,248 1389.45455,247.674389 1389.45455,247.272727 L1389.45455,242.181818 C1389.45455,241.780157 1389.78016,241.454545 1390.18182,241.454545 Z"
+                    id="icon-grid-layout"
+                    fill="#B8B8B8"
+                  ></path>
+                </g>
+              </svg>
+              <p class="title">GRID</p>
+            </div>
+
+            <div
+              id="layout-list"
+              class="layout-dropdown__item <%= layout === 'list' ? 'active' : '' %>"
+            >
+              <svg
+                width="27px"
+                height="16px"
+                viewBox="0 0 27 16"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <g
+                  id="list-layout-icon"
+                  stroke="none"
+                  stroke-width="1"
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(-1435.000000, -231.000000)"
+                >
+                  <path
+                    d="M1435.72727,231 L1440.82273,231 C1441.22439,231 1441.55,231.325611 1441.55,231.727273 L1441.55,236.818182 C1441.55,237.219843 1441.22439,237.545455 1440.82273,237.545455 L1435.72727,237.545455 C1435.32561,237.545455 1435,237.219843 1435,236.818182 L1435,231.727273 C1435,231.325611 1435.32561,231 1435.72727,231 Z M1444.72727,231 L1460.95694,231 C1461.3586,231 1461.68421,231.325611 1461.68421,231.727273 L1461.68421,236.818182 C1461.68421,237.219843 1461.3586,237.545455 1460.95694,237.545455 L1444.72727,237.545455 C1444.32561,237.545455 1444,237.219843 1444,236.818182 L1444,231.727273 C1444,231.325611 1444.32561,231 1444.72727,231 Z M1435.72727,240 L1440.82273,240 C1441.22439,240 1441.55,240.325611 1441.55,240.727273 L1441.55,245.818182 C1441.55,246.219843 1441.22439,246.545455 1440.82273,246.545455 L1435.72727,246.545455 C1435.32561,246.545455 1435,246.219843 1435,245.818182 L1435,240.727273 C1435,240.325611 1435.32561,240 1435.72727,240 Z M1444.72727,240 L1460.95694,240 C1461.3586,240 1461.68421,240.325611 1461.68421,240.727273 L1461.68421,245.818182 C1461.68421,246.219843 1461.3586,246.545455 1460.95694,246.545455 L1444.72727,246.545455 C1444.32561,246.545455 1444,246.219843 1444,245.818182 L1444,240.727273 C1444,240.325611 1444.32561,240 1444.72727,240 Z"
+                    id="icon-list-layout"
+                    fill="#B8B8B8"
+                  ></path>
+                </g>
+              </svg>
+              <p class="title">LIST</p>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <% if (groups.length === 0) { %>
+      <!-- No Groups Found -->
+      <div class="dashboard-section__no-data">
+        <p>Create a Group to add cards.</p>
+        <button
+          class="btn btn--primary modal-trigger"
+          data-modal="new-group-overlay"
+        >
+          Create Group
+        </button>
+      </div>
+      <% } else { %>
+      <div class="dashboard-section__groups">
+        <!-- Render Groups -->
+        <% for( let i = 0; i < groups.length; i++ ) { %>
+        <div
+          id="<%= groups[i].name.toLowerCase() %>"
+          class="dashboard-section__groups__group"
+        >
+          <div class="dashboard-section__groups__group__title">
+            <div class="dashboard-section__groups__group__title__left">
+              <h2><%= groups[i].name %></h2>
+              <p class="count"><%= groups[i].items.length %></p>
+            </div>
+
+            <div class="dashboard-section__groups__group__title__right">
+              <button
+                class="new-card-btn"
+                data-modal="new-card-overlay"
+                data-id="<%= groups[i].id %>"
+              >
+                New Card
+              </button>
+
+              <button
+                class="dropdown-trigger"
+                data-overlay="options-overlay-<%= groups[i].id %>"
+                data-dropdown="options-dropdown-<%= groups[i].id %>"
+                data-width="175"
+                data-height="205"
+                data-includescroll="true"
+                data-isShowing="false"
+              >
+                Options
+                <div
+                  id="options-overlay-<%= groups[i].id %>"
+                  class="invisible-overlay"
+                ></div>
+                <div
+                  id="options-dropdown-<%= groups[i].id %>"
+                  class="options-dropdown dropdown"
+                >
+                  <a
+                    class="toggle-group-visbility"
+                    data-id="<%= groups[i].id %>"
+                    data-value="<%= groups[i].groupVisibility %>"
+                    >Make <%= groups[i].groupVisibility === 'hidden' ? 'Public'
+                    : 'Private' %></a
+                  >
+                  <a
+                    class="change-group edit-group-btn"
+                    data-id="<%= groups[i].id %>"
+                    data-name="<%= groups[i].name %>"
+                    data-color="<%= groups[i].color %>"
+                  >
+                    Change Group
+                  </a>
+                  <a
+                    class="edit-mode-btn"
+                    data-elementid="<%= groups[i].name.toLowerCase() %>"
+                    data-groupname="<%= groups[i].name %>"
+                  >
+                    Edit Mode
+                  </a>
+                  <div class="divider"></div>
+                  <a
+                    class="delete-group-btn red"
+                    data-id="<%= groups[i].id %>"
+                    class="red"
+                  >
+                    Delete
+                  </a>
+                </div>
+              </button>
+            </div>
+          </div>
+          <div class="dashboard-section__groups__group__divider">
+            <div
+              class="small-line"
+              style="background-color: <%= groups[i].color %>"
+            ></div>
+          </div>
+
+          <% if (groups[i].items.length === 0) { %>
+          <!-- No-Items in group -->
+          <div class="dashboard-section__groups__group__no-data">
+            <p>Add a Card to this Group</p>
+            <button
+              class="btn btn--primary new-card-btn"
+              data-modal="new-card-overlay"
+              data-id="<%= groups[i].id %>"
+            >
+              Add Card
+            </button>
+          </div>
+          <% } else { %>
+          <!-- Layout-Grid -->
+          <% if (layout === 'grid') { %>
+          <div class="dashboard-section__groups__group__grid">
+            <% for( let j = 0; j < groups[i].items.length; j++ ) { %>
+            <div class="dashboard-section__groups__group__grid__item">
+              <a
+                class="top"
+                href="<%= groups[i].items[j].url %>"
+                target="_blank"
+              >
+                <div class="avatar">
+                  <% if (groups[i].items[j].icon) { %>
+                  <img src="<%= groups[i].items[j].icon %>" />
+                  <% } else { %>
+                  <span
+                    class="icon"
+                    style="background-color: <%= groups[i].color %>"
+                  >
+                    <%= groups[i].items[j].name.split('')[0] %>
+                  </span>
+                  <%} %>
+                </div>
+                <div class="text">
+                  <h3><%= groups[i].items[j].name %></h3>
+                  <p>
+                    <%= groups[i].items[j].url.replace('https://www.',
+                    '').replace('http://www.', '').replace('https://',
+                    '').replace('http://', '') %>
+                  </p>
+                </div>
+              </a>
+
+              <div class="bottom">
+                <button
+                  class="delete modal-trigger delete-card-btn"
+                  data-modal="delete-card-overlay"
+                  data-groupid="<%= groups[i].id %>"
+                  data-cardid="<%= groups[i].items[j].id %>"
+                >
+                  Delete
+                </button>
+                <button
+                  class="edit modal-trigger edit-card-btn"
+                  data-modal="edit-card-overlay"
+                  data-groupid="<%= groups[i].id %>"
+                  data-cardid="<%= groups[i].items[j].id %>"
+                  data-cardname="<%= groups[i].items[j].name %>"
+                  data-cardurl="<%= groups[i].items[j].url %>"
+                >
+                  Edit
+                </button>
+              </div>
+            </div>
+            <% } %>
+          </div>
+          <% } else { %>
+          <!-- Layout-List -->
+          <div class="dashboard-section__groups__group__list">
+            <% for( let j = 0; j < groups[i].items.length; j++ ) { %>
+            <div class="dashboard-section__groups__group__list__item">
+              <a
+                class="top"
+                href="<%= groups[i].items[j].url %>"
+                target="_blank"
+              >
+                <div class="avatar">
+                  <% if (groups[i].items[j].icon) { %>
+                  <img src="<%= groups[i].items[j].icon %>" />
+                  <% } else { %>
+                  <span
+                    class="icon"
+                    style="background-color: <%= groups[i].color %>"
+                  >
+                    <%= groups[i].items[j].name.split('')[0] %>
+                  </span>
+                  <%} %>
+                </div>
+                <div class="text">
+                  <h3><%= groups[i].items[j].name %></h3>
+                  <p>
+                    <%= groups[i].items[j].url.replace('https://www.',
+                    '').replace('http://www.', '') %>
+                  </p>
+                </div>
+              </a>
+
+              <div class="bottom">
+                <button
+                  class="delete modal-trigger delete-card-btn"
+                  data-modal="delete-card-overlay"
+                  data-groupid="<%= groups[i].id %>"
+                  data-cardid="<%= groups[i].items[j].id %>"
+                >
+                  Delete
+                </button>
+                <button
+                  class="edit modal-trigger edit-card-btn"
+                  data-modal="edit-card-overlay"
+                  data-groupid="<%= groups[i].id %>"
+                  data-cardid="<%= groups[i].items[j].id %>"
+                  data-cardname="<%= groups[i].items[j].name %>"
+                  data-cardurl="<%= groups[i].items[j].url %>"
+                >
+                  Edit
+                </button>
+              </div>
+            </div>
+            <% } %>
+          </div>
+          <% } %> <% } %>
+
+          <div class="dashboard-section__groups__group__status">
+            <% if (groups[i].groupVisibility === 'hidden') { %>
+            <button
+              class="private toggle-group-visbility"
+              data-id="<%= groups[i].id %>"
+              data-value="<%= groups[i].groupVisibility %>"
+            >
+              Private Group
+            </button>
+            <% } else { %>
+            <button
+              class="public toggle-group-visbility"
+              data-id="<%= groups[i].id %>"
+              data-value="<%= groups[i].groupVisibility %>"
+            >
+              Public Group
+            </button>
+            <% } %>
+          </div>
+        </div>
+        <% } %>
+        <!-- End-of-for-loop -->
+      </div>
+      <!-- End-of-else -->
+      <% } %>
+
+      <!-- New To Zave Modal -->
+      <div id="new-to-zave-overlay" class="modal-overlay">
+        <div class="modal">
+          <img src="/img/zave-icon.svg" alt="logo" />
+          <h1>Welcome to Zave!</h1>
+          <p>
+            We have created a couple of <strong>groups</strong> to get you
+            started. You can edit or delete these at any time.
+          </p>
+
+          <p>
+            If you have any questions or feedback please message us at
+            <a href="mailto:hello@zave.com">hello@zave.com</a>. We would love to
+            hear from you!
+          </p>
+
+          <button class="btn btn--primary start-tour-btn">Start Tour</button>
+          <button
+            class="btn btn--green close-modal"
+            data-modal="new-to-zave-overlay"
+          >
+            Start Saving
+          </button>
+        </div>
+      </div>
+
+      <!-- Start Tour Modal -->
+      <div id="start-tour-overlay" class="modal-overlay">
+        <div class="modal">
+          <img src="/img/zave-icon.svg" alt="logo" />
+          <h1>Want to take a quick tour?</h1>
+          <p>
+            The tour will help you get to grips with Zave and allow you to get
+            the most from it.
+          </p>
+
+          <button class="btn btn--primary start-tour-btn">Start Tour</button>
+        </div>
+      </div>
+
+      <!-- Tour Slider Modal -->
+      <div id="tour-slider-overlay" class="modal-overlay">
+        <div class="tour-slick-wrapper">
+          <div id="tour-slick">
+            <div class="slide">
+              <p>
+                Create a group to hold the cards you save. All groups are
+                private by default.
+              </p>
+              <img src="/img/tour-image-1.jpg" alt="tour-image-1" />
+            </div>
+            <div class="slide">
+              <p>
+                You can make a group public at anytime, this will show your
+                group on your profile and make it visible to the world.
+              </p>
+              <img src="/img/tour-image-2.jpg" alt="tour-image-2" />
+            </div>
+            <div class="slide">
+              <p>
+                When you have created a group you can begin start saving cards,
+                just paste the url and we will do the rest.
+              </p>
+              <img src="/img/tour-image-3.jpg" alt="tour-image-3" />
+            </div>
+            <div class="slide">
+              <p>
+                You have full control over your cards. Want a different icon,
+                name or position? We can handle that.
+              </p>
+              <img src="/img/tour-image-4.jpg" alt="tour-image-4" />
+            </div>
+            <div class="slide">
+              <p>
+                Save interesting articles in your groups and share your reading
+                lists with the world via your profile.
+              </p>
+              <img src="/img/tour-image-5.jpg" alt="tour-image-5" />
+            </div>
+          </div>
+
+          <div class="slider-controls">
+            <div class="slider-pagination"></div>
+            <div class="slider-nav"></div>
+            <div class="slider-finish-tour" style="display: none">
+              <button
+                class="slick-arrow close-modal"
+                data-modal="tour-slider-overlay"
+              >
+                Start Saving
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <button
+      id="fab"
+      class="btn btn--fab btn--primary btn--icon-plus modal-trigger"
+      data-modal="add-new-overlay"
+    >
+      <span class="icon icon--plus"></span>
+    </button>
+
+    <!-- ADD NEW OVERLAY -->
+    <div id="add-new-overlay" class="modal-overlay">
+      <div class="modal">
+        <img src="/img/icon-link.svg" alt="link-icon" />
+        <h1>
+          Copy and paste the URL of the website you want to create a card for
+        </h1>
+
+        <form id="add-new-form">
+          <div class="form-group full-width">
+            <input
+              type="text"
+              placeholder="http://example.com"
+              name="url"
+              id="url"
+              required
+            />
+
+            <div class="form-group full-width">
+              <select name="group" id="selected-group" required>
+                <option value selected disabled>Select Group</option>
+                <% for( let i = 0; i < groups.length; i++ ) { %>
+                <option value="<%= groups[i].id %>">
+                  <%= groups[i].name %>
+                </option>
+                <% } %>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group full-width bottom-group">
+            <button type="submit" class="btn btn--primary">
+              Go <img src="/img/icon-right-arrow.svg" />
+            </button>
+            <p>
+              When you enter the url we will attempt to return an icon and page
+              title
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- DELETE CARD OVERLAY -->
+    <div id="delete-card-overlay" class="modal-overlay">
+      <div class="modal">
+        <h1>Are you sure you want to delete this Card?</h1>
+        <p>This is permenant and once deleted cannot be recovered.</p>
+        <form id="delete-card-form">
+          <input type="hidden" id="group-id" />
+          <input type="hidden" id="card-id" />
+          <div class="form-group full-width">
+            <button class="btn btn--red" type="submit">Delete</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- EDIT CARD OVERLAY -->
+    <div id="edit-card-overlay" class="modal-overlay">
+      <div class="modal">
+        <h1>Edit Card</h1>
+        <p>Change the name or url of the card</p>
+        <form id="edit-card-form">
+          <input type="hidden" id="group-id-card-edit" />
+          <input type="hidden" id="card-id-edit" />
+
+          <div class="form-group full-width">
+            <label for="name">Name</label>
+            <input name="name" type="text" placeholder="Name" id="card-name" />
+          </div>
+
+          <div class="form-group full-width">
+            <label for="url">URL</label>
+            <input name="url" type="text" placeholder="URL" id="card-url" />
+          </div>
+
+          <div class="form-group full-width">
+            <button class="btn btn--primary" type="submit">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="bottom-edit-mode-bar" class="bottom-bar">
+      <h3 id="group-name"></h3>
+
+      <div class="btns">
+        <button id="cancel-btn" class="btn btn--red">Cancel</button>
+        <button
+          id="save-btn"
+          class="btn btn--light-green"
+          style="display: none"
+        >
+          Save Changes
+        </button>
+      </div>
+    </div>
+
+    <%- include('../partials/footer') %>
+  </body>
+</html>

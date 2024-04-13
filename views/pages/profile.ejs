@@ -1,0 +1,292 @@
+<% const title = `${profile.username}'s profile on Zave` %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head', { title }) %>
+  </head>
+
+  <body>
+    <%- include('../partials/header-fixed', { host, user, showSearch: true }) %>
+
+    <header class="profile-header">
+      <div class="profile-header__inner">
+        <div class="profile-header__inner__profile-info">
+          <div class="avatar"><img src="/avatar/<%= profile.avatar %>" /></div>
+          <div class="name"><h1><%= profile.username %></h1></div>
+          <div class="bio"><pre><%= profile.bio %></pre></div>
+          <div class="social-icons">
+            <% if (profile.socialProfiles.facebook) { %>
+            <a
+              href="<%=profile.socialProfiles.facebook  %>"
+              class="facebook"
+              target="_blank"
+            ></a>
+            <% } %> <% if (profile.socialProfiles.twitter) { %>
+            <a
+              href="<%=profile.socialProfiles.twitter  %>"
+              class="twitter"
+              target="_blank"
+            ></a>
+            <% } %> <% if (profile.socialProfiles.instagram) { %>
+            <a
+              href="<%=profile.socialProfiles.instagram  %>"
+              class="instagram"
+              target="_blank"
+            ></a>
+            <% } %> <% if (profile.socialProfiles.producthunt) { %>
+            <a
+              href="<%=profile.socialProfiles.producthunt  %>"
+              class="producthunt"
+              target="_blank"
+            ></a>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <nav id="sticky-wrapper" class="profile-nav">
+      <div class="dashboard-section__nav__tabs">
+        <% for( let i = 0; i < groups.length; i++ ) { %>
+        <a
+          href="#<%= groups[i].name.toLowerCase() %>"
+          style="border-color: <%= groups[i].color %>"
+        >
+          <%= groups[i].name %>
+        </a>
+        <% } %>
+      </div>
+    </nav>
+
+    <div class="profile-groups background-grey">
+      <div class="profile-groups__layout-options">
+        <button
+          class="dropdown-trigger"
+          data-overlay="layout-overlay"
+          data-dropdown="layout-dropdown"
+          data-width="152"
+          data-height="87"
+          data-includescroll="true"
+          data-isShowing="false"
+        >
+          <img src="/img/icon-grid-layout.svg" />
+          <div id="layout-overlay" class="invisible-overlay"></div>
+          <div id="layout-dropdown" class="layout-dropdown dropdown">
+            <div
+              id="layout-grid"
+              class="layout-dropdown__item <%= layout === 'grid' ? 'active': '' %>"
+            >
+              <svg
+                width="16px"
+                height="16px"
+                viewBox="0 0 16 16"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <g
+                  id="grid-layout-icon"
+                  stroke="none"
+                  stroke-width="1"
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(-1380.000000, -232.000000)"
+                >
+                  <path
+                    d="M1380.72727,232 L1385.81818,232 C1386.21984,232 1386.54545,232.325611 1386.54545,232.727273 L1386.54545,237.818182 C1386.54545,238.219843 1386.21984,238.545455 1385.81818,238.545455 L1380.72727,238.545455 C1380.32561,238.545455 1380,238.219843 1380,237.818182 L1380,232.727273 C1380,232.325611 1380.32561,232 1380.72727,232 Z M1390.18182,232 L1395.27273,232 C1395.67439,232 1396,232.325611 1396,232.727273 L1396,237.818182 C1396,238.219843 1395.67439,238.545455 1395.27273,238.545455 L1390.18182,238.545455 C1389.78016,238.545455 1389.45455,238.219843 1389.45455,237.818182 L1389.45455,232.727273 C1389.45455,232.325611 1389.78016,232 1390.18182,232 Z M1380.72727,241.454545 L1385.81818,241.454545 C1386.21984,241.454545 1386.54545,241.780157 1386.54545,242.181818 L1386.54545,247.272727 C1386.54545,247.674389 1386.21984,248 1385.81818,248 L1380.72727,248 C1380.32561,248 1380,247.674389 1380,247.272727 L1380,242.181818 C1380,241.780157 1380.32561,241.454545 1380.72727,241.454545 Z M1390.18182,241.454545 L1395.27273,241.454545 C1395.67439,241.454545 1396,241.780157 1396,242.181818 L1396,247.272727 C1396,247.674389 1395.67439,248 1395.27273,248 L1390.18182,248 C1389.78016,248 1389.45455,247.674389 1389.45455,247.272727 L1389.45455,242.181818 C1389.45455,241.780157 1389.78016,241.454545 1390.18182,241.454545 Z"
+                    id="icon-grid-layout"
+                    fill="#B8B8B8"
+                  ></path>
+                </g>
+              </svg>
+              <p class="title">GRID</p>
+            </div>
+
+            <div
+              id="layout-list"
+              class="layout-dropdown__item <%= layout === 'list' ? 'active' : '' %>"
+            >
+              <svg
+                width="27px"
+                height="16px"
+                viewBox="0 0 27 16"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <g
+                  id="list-layout-icon"
+                  stroke="none"
+                  stroke-width="1"
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(-1435.000000, -231.000000)"
+                >
+                  <path
+                    d="M1435.72727,231 L1440.82273,231 C1441.22439,231 1441.55,231.325611 1441.55,231.727273 L1441.55,236.818182 C1441.55,237.219843 1441.22439,237.545455 1440.82273,237.545455 L1435.72727,237.545455 C1435.32561,237.545455 1435,237.219843 1435,236.818182 L1435,231.727273 C1435,231.325611 1435.32561,231 1435.72727,231 Z M1444.72727,231 L1460.95694,231 C1461.3586,231 1461.68421,231.325611 1461.68421,231.727273 L1461.68421,236.818182 C1461.68421,237.219843 1461.3586,237.545455 1460.95694,237.545455 L1444.72727,237.545455 C1444.32561,237.545455 1444,237.219843 1444,236.818182 L1444,231.727273 C1444,231.325611 1444.32561,231 1444.72727,231 Z M1435.72727,240 L1440.82273,240 C1441.22439,240 1441.55,240.325611 1441.55,240.727273 L1441.55,245.818182 C1441.55,246.219843 1441.22439,246.545455 1440.82273,246.545455 L1435.72727,246.545455 C1435.32561,246.545455 1435,246.219843 1435,245.818182 L1435,240.727273 C1435,240.325611 1435.32561,240 1435.72727,240 Z M1444.72727,240 L1460.95694,240 C1461.3586,240 1461.68421,240.325611 1461.68421,240.727273 L1461.68421,245.818182 C1461.68421,246.219843 1461.3586,246.545455 1460.95694,246.545455 L1444.72727,246.545455 C1444.32561,246.545455 1444,246.219843 1444,245.818182 L1444,240.727273 C1444,240.325611 1444.32561,240 1444.72727,240 Z"
+                    id="icon-list-layout"
+                    fill="#B8B8B8"
+                  ></path>
+                </g>
+              </svg>
+              <p class="title">LIST</p>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <% if (groups.length === 0) { %>
+      <!-- No Groups Found -->
+      <div class="profile-groups__no-data">
+        <p>No public groups found.</p>
+      </div>
+      <% } else { %>
+      <!-- Render Groups -->
+      <div class="dashboard-section__groups">
+        <% for( let i = 0; i < groups.length; i++ ) { %>
+        <div
+          id="<%= groups[i].name.toLowerCase() %>"
+          class="dashboard-section__groups__group"
+        >
+          <div class="dashboard-section__groups__group__title">
+            <div class="dashboard-section__groups__group__title__left">
+              <h2><%= groups[i].name %></h2>
+              <p class="count"><%= groups[i].items.length %></p>
+            </div>
+
+            <div class="dashboard-section__groups__group__title__right">
+              <button
+                class="dropdown-trigger"
+                data-overlay="share-overlay-<%= groups[i].id %>"
+                data-dropdown="share-dropdown-<%= groups[i].id %>"
+                data-width="175"
+                data-height="134"
+                data-includescroll="true"
+                data-isShowing="false"
+              >
+                Share
+                <div
+                  id="share-overlay-<%= groups[i].id %>"
+                  class="invisible-overlay"
+                ></div>
+                <div
+                  id="share-dropdown-<%= groups[i].id %>"
+                  class="share-dropdown dropdown"
+                >
+                  <a
+                    href="https://twitter.com/intent/tweet?text=Start browsing <%= groups[i].name %> <%= host %>/<%= profile.username %>#<%= groups[i].name.toLowerCase() %> saved on @zave_app"
+                    class="twitter"
+                    onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=445,width=600');return false;"
+                  >
+                    Twitter
+                  </a>
+                  <a
+                    href="https://www.facebook.com/sharer/sharer.php?u=<%= host %>/<%= profile.username %>#<%= groups[i].name.toLowerCase() %>&quote=Start+browsing+<%= groups[i].name %>+on+Zave"
+                    class="facebook"
+                    onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=445,width=600');return false;"
+                  >
+                    Facebook
+                  </a>
+                  <a
+                    class="copy-link"
+                    data-clipboard-text="<%= host %>/<%= profile.username %>#<%= groups[i].name.toLowerCase() %>"
+                  >
+                    Copy Link
+                  </a>
+                </div>
+              </button>
+            </div>
+          </div>
+          <div class="dashboard-section__groups__group__divider">
+            <div
+              class="small-line"
+              style="background-color: <%= groups[i].color %>"
+            ></div>
+          </div>
+
+          <% if (groups[i].items.length === 0) { %>
+          <!-- No-Items in group -->
+          <div class="dashboard-section__groups__group__no-data">
+            <p>No cards saved for this group.</p>
+          </div>
+          <% } else { %>
+          <!-- Layout-Grid -->
+          <% if (layout === 'grid') { %>
+          <div class="dashboard-section__groups__group__grid">
+            <% for( let j = 0; j < groups[i].items.length; j++ ) { %>
+            <div class="dashboard-section__groups__group__grid__item">
+              <a
+                href="<%= groups[i].items[j].url %>"
+                target="_blank"
+                class="top"
+              >
+                <div class="avatar">
+                  <% if (groups[i].items[j].icon) { %>
+                  <img src="<%= groups[i].items[j].icon %>" />
+                  <% } else { %>
+                  <span
+                    class="icon"
+                    style="background-color: <%= groups[i].color %>"
+                  >
+                    <%= groups[i].items[j].name.split('')[0] %>
+                  </span>
+                  <%} %>
+                </div>
+                <div class="text">
+                  <h3><%= groups[i].items[j].name %></h3>
+                  <p>
+                    <%= groups[i].items[j].url.replace('https://www.',
+                    '').replace('http://www.', '') %>
+                  </p>
+                </div>
+              </a>
+            </div>
+            <% } %>
+          </div>
+          <% } else { %>
+          <!-- Layout-List -->
+          <div class="dashboard-section__groups__group__list">
+            <% for( let j = 0; j < groups[i].items.length; j++ ) { %>
+            <div class="dashboard-section__groups__group__list__item">
+              <a
+                href="<%= groups[i].items[j].url %>"
+                target="_blank"
+                class="top"
+              >
+                <div class="avatar">
+                  <% if (groups[i].items[j].icon) { %>
+                  <img src="<%= groups[i].items[j].icon %>" />
+                  <% } else { %>
+                  <span
+                    class="icon"
+                    style="background-color: <%= groups[i].color %>"
+                  >
+                    <%= groups[i].items[j].name.split('')[0] %>
+                  </span>
+                  <%} %>
+                </div>
+                <div class="text">
+                  <h3><%= groups[i].items[j].name %></h3>
+                  <p>
+                    <%= groups[i].items[j].url.replace('https://www.',
+                    '').replace('http://www.', '') %>
+                  </p>
+                </div>
+              </a>
+            </div>
+            <% } %>
+          </div>
+          <% } %>
+          <!--  End-of-items -->
+          <% } %>
+        </div>
+        <!-- End-for-loop-groups -->
+        <% } %> <% } %>
+      </div>
+    </div>
+
+    <script src="/js/clipboard.min.js"></script>
+    <%- include('../partials/footer') %>
+  </body>
+</html>

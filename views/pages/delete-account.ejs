@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head', { title: 'Zave - Delete Account' }) %>
+  </head>
+
+  <body>
+    <%- include('../partials/header-fixed', { showSearch: false, user }) %>
+
+    <main class="delete-account-section background-grey">
+      <div class="delete-account-section__wrapper">
+        <div class="delete-account-section__wrapper__inner">
+          <h1>Delete Account?</h1>
+
+          <p>
+            This is permenant and once your account is deleted it cannot be
+            recovered, we will delete all associated data with your account eg
+            cards, groups and all your personal info.
+          </p>
+
+          <p>
+            If you delete your account your data will be immediately deleted and
+            you will be logged out.
+          </p>
+
+          <form
+            id="delete-account-form"
+            class="delete-account-section__wrapper__form"
+          >
+            <div class="form-group form-group-full-width">
+              <button type="submit" class="btn btn--red">
+                Delete My Account
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <div class="footer-divider"></div>
+    <%- include('../partials/footer') %>
+  </body>
+</html>

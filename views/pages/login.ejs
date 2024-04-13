@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head', { title: 'Zave - Login' }) %>
+  </head>
+
+  <body>
+    <%- include('../partials/header', { items: 'sign-up', user }) %>
+
+    <main class="login-section">
+      <div class="login-section__wrapper">
+        <h1>Login</h1>
+
+        <form id="login-form" class="login-section__wrapper__form">
+          <div class="form-group-2">
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="email@example.com"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Minimum 6 characters"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group form-group-full-width">
+            <button type="submit" class="btn btn--primary btn--rounded">
+              Login
+            </button>
+          </div>
+        </form>
+
+        <p class="login-section__wrapper__sub">
+          Forgot your password? You can
+          <a href="/forgot-password">reset it here</a>
+        </p>
+      </div>
+    </main>
+
+    <div class="footer-divider"></div>
+    <%- include('../partials/footer') %>
+  </body>
+</html>

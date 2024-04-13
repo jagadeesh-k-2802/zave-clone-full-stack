@@ -1,0 +1,90 @@
+.btn {
+  border: 0;
+  border-radius: 5px;
+  padding: 15px 25px;
+  transition: background-color 350ms, color 350ms, opacity 350ms;
+  font-size: 1.8rem;
+  display: inline-block;
+  font-weight: 700;
+
+  &--rounded {
+    border-radius: 35px;
+  }
+
+  &--icon {
+    &-plus {
+      background-repeat: no-repeat;
+      height: 55px;
+      width: 55px;
+      background-position: center;
+      background-image: url(/img/icon-white-plus.svg);
+    }
+  }
+
+  &--fab {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+
+    &.hide {
+      opacity: 0;
+    }
+  }
+
+  &--primary {
+    background-color: #3488ff;
+    color: #fff;
+
+    &:hover {
+      background-color: #2c73d8;
+    }
+  }
+
+  &--orange {
+    background-color: #ff9e72;
+    color: #fff;
+
+    &:hover {
+      background-color: darken(#ff9e72, 10);
+    }
+  }
+
+  &--red {
+    background: #ff5757;
+    color: #fff;
+
+    &:hover {
+      background-color: darken($color: #ff5757, $amount: 28);
+    }
+  }
+
+  &--green {
+    color: #fff;
+    background-color: #42e292;
+
+    &:hover {
+      background-color: darken($color: #4ad97f, $amount: 10);
+    }
+  }
+
+  &--light-green {
+    background-color: #4feab5;
+    color: #fff;
+
+    &:hover {
+      background-color: darken($color: #4feab5, $amount: 10);
+    }
+  }
+
+  &--grey {
+    color: #7c7c7c;
+    background-color: #f7f7f7;
+
+    &:hover {
+      background-color: darken($color: #f7f7f7, $amount: 15);
+    }
+  }
+}

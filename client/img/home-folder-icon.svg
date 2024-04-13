@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="31px" height="29px" viewBox="0 0 31 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>folder</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M10.6391223,3.5 L4.5,3.5 C3.74060847,3.5 3.125,4.11560847 3.125,4.875 L3.125,24.125 C3.125,24.8843915 3.74060847,25.5 4.5,25.5 L26.5,25.5 C27.2593915,25.5 27.875,24.8843915 27.875,24.125 L27.875,9 C27.875,8.24060847 27.2593915,7.625 26.5,7.625 L14.125,7.625 C13.6652644,7.625 13.2359463,7.39523594 12.9809308,7.01271277 L10.6391223,3.5 Z M14.8608777,4.875 L26.5,4.875 C28.7781746,4.875 30.625,6.72182541 30.625,9 L30.625,24.125 C30.625,26.4031746 28.7781746,28.25 26.5,28.25 L4.5,28.25 C2.22182541,28.25 0.375,26.4031746 0.375,24.125 L0.375,4.875 C0.375,2.59682541 2.22182541,0.75 4.5,0.75 L11.375,0.75 C11.8347356,0.75 12.2640537,0.979764061 12.5190692,1.36228723 L14.8608777,4.875 Z" id="path-1"></path>
+    </defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-224.000000, -2688.000000)">
+        <g id="folder" transform="translate(224.000000, 2688.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Shape" fill="#7A41FF" fill-rule="nonzero" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

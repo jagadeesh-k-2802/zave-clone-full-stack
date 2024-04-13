@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="13px" viewBox="0 0 16 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Combined Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M605.4,557.6 L617.3,557.6 C617.686599,557.6 618,557.913401 618,558.3 C618,558.686599 617.686599,559 617.3,559 L604.7,559 C604.313401,559 604,558.686599 604,558.3 L604,552.7 C604,552.313401 604.313401,552 604.7,552 C605.086599,552 605.4,552.313401 605.4,552.7 L605.4,557.6 Z" id="path-1"></path>
+    </defs>
+    <g id="Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-598.000000, -551.000000)">
+        <g id="Save-Group-Modal" transform="translate(-5.000000, 0.000000)">
+            <g id="Combined-Shape" transform="translate(611.000000, 555.500000) rotate(-45.000000) translate(-611.000000, -555.500000) ">
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <path stroke="#FFFFFF" stroke-width="0.7" d="M605.75,557.25 L617.3,557.25 C617.879899,557.25 618.35,557.720101 618.35,558.3 C618.35,558.879899 617.879899,559.35 617.3,559.35 L604.7,559.35 C604.120101,559.35 603.65,558.879899 603.65,558.3 L603.65,552.7 C603.65,552.120101 604.120101,551.65 604.7,551.65 C605.279899,551.65 605.75,552.120101 605.75,552.7 L605.75,557.25 Z"></path>
+            </g>
+        </g>
+    </g>
+</svg>

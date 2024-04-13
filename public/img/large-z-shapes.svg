@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="903px" height="667px" viewBox="0 0 903 667" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 7</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="15.2268639%" y1="-29.1241671%" x2="75.1004464%" y2="141.488487%" id="linearGradient-1">
+            <stop stop-color="#3488FF" offset="0%"></stop>
+            <stop stop-color="#6B6AF3" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="-0.694411793%" y1="15.5419368%" x2="99.3055882%" y2="84.4580632%" id="linearGradient-2">
+            <stop stop-color="#4FD9E3" offset="0%"></stop>
+            <stop stop-color="#50F699" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Sign-Up" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-535.000000, -239.000000)" opacity="0.140000001">
+        <g id="Group-7">
+            <g transform="translate(461.000000, 165.000000)" id="Rectangle">
+                <rect fill="url(#linearGradient-1)" transform="translate(406.868421, 407.465489) rotate(-315.000000) translate(-406.868421, -407.465489) " x="100.403509" y="138.836333" width="612.929825" height="537.258312" rx="178.487211"></rect>
+                <rect fill="url(#linearGradient-2)" opacity="0.799999952" transform="translate(644.131579, 407.465489) rotate(-315.000000) translate(-644.131579, -407.465489) " x="337.666667" y="138.836333" width="612.929825" height="537.258312" rx="178.487211"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

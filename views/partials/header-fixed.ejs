@@ -1,0 +1,41 @@
+<header class="header-fixed">
+  <a href="/" class="header-fixed__logo">
+    <img src="/img/zave-icon.svg" alt="logo" />
+  </a>
+
+  <% if (showSearch) { %>
+  <div class="header-fixed__mid">
+    <div class="header-fixed__mid__search">
+      <input type="text" id="search" placeholder="Search" />
+    </div>
+  </div>
+  <% } %>
+
+  <div class="header-fixed__right">
+    <% if (user) { %>
+    <a class="nav-link" href="/dashboard">Dashboard</a>
+    <button
+      class="avatar dropdown-trigger"
+      data-overlay="avatar-overlay"
+      data-dropdown="avatar-dropdown"
+      data-width="175"
+      data-height="163.4"
+      data-isShowing="false"
+    >
+      <div id="avatar-overlay" class="invisible-overlay"></div>
+      <div id="avatar-dropdown" class="avatar-dropdown dropdown">
+        <a href="/<%= user.username %>">My Profile</a>
+        <a href="/settings">Profile Settings</a>
+        <a href="/dashboard?status=tour">Tour</a>
+        <div class="divider"></div>
+        <a href="/auth/logout" class="red">Logout</a>
+      </div>
+      <img src="<%= `${host}/avatar/${user.avatar}` %>" />
+    </button>
+
+    <% } else { %>
+    <a class="nav-link blue" href="/login">Login</a>
+    <a class="nav-link orange" href="/signup">Sign Up</a>
+    <%} %>
+  </div>
+</header>
