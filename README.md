@@ -15,6 +15,22 @@
 - Public & Private Groups
 - Users Can Save on Their Favourite Websites into Groups
 
+## Running The Application 🧑🏻‍💻
+
+- `git clone https://github.com/jagadeesh-k-2802/zave-clone-full-stack`
+- `cd server && npm i`
+- Configure all required environment variables in `server/config/config.env.example`
+- Remove .example from the filename it should be `config.env
+- Install MongoDB Locally on Your System or use Cloud hosted connection string
+- `npm run dev` to start the node server
+- `cd client && npm i` to install NPM Libraries in Client
+- `npm start` to start Webpack development server
+
+## Database Seeding 🌱
+
+- `node db-cli.js --seed` This command populates the db with few sample data to get started
+- `node db-cli.js --clean` This command will delete everything stored in the database
+
 ## Features Not Implemented ❌
 
 - SearchBar in dashboard and profile pages
