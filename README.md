@@ -1,4 +1,8 @@
-# Zave Clone ⚙️
+# Zave Clone 🔖
+
+<img src="https://github.com/jagadeesh-k-2802/zave-clone-full-stack/assets/63912668/3cd0a82e-97b0-4766-8433-689a1ed78dd4" width="750" />
+
+## Technologies ⚙️
 
 - HTML, SASS, JS
 - EJS (Templating Engine)
