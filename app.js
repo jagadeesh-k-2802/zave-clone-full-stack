@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
-
 const errorHandler = require('./middlewares/error');
 const notFound = require('./middlewares/404');
 
