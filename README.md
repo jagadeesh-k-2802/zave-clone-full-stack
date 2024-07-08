@@ -24,7 +24,7 @@
 - `git clone https://github.com/jagadeesh-k-2802/zave-clone-full-stack`
 - `cd server && npm i`
 - Configure all required environment variables in `server/config/config.env.example`
-- Remove .example from the filename it should be `config.env
+- Remove `.example` from the filename it should be `config.env`
 - Install MongoDB Locally on Your System or use Cloud hosted connection string
 - `npm run dev` to start the node server
 - `cd client && npm i` to install NPM Libraries in Client
